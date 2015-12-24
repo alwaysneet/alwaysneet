@@ -25,18 +25,17 @@ app.post('/upload', function(request, response) {
 
 	});
 	request.pipe(busboy);
-		fileName++;
-	
-		dataBox.push([fileName+'.jpg',fileName + '.m4a']);
-		response.end('ok');
-	});
+	fileName++;
+	dataBox.push([fileName+'.jpg',fileName + '.m4a']);
+	response.end('ok');
+});
 
-	app.get('/message', function(request, response){
-		response.end(JSON.stringify(dataBox));
-	});
+app.get('/message', function(request, response){
+	response.end(JSON.stringify(dataBox));
+});
 
 app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
+	console.log('Node app is running on port', app.get('port'));
 });
 
 
